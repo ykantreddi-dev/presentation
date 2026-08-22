@@ -1,2 +1,1 @@
-- [Decorators, Generators and Exceptions](https://ykantreddi-dev.github.io/presentation/python-session-generators-decorators-slate.html)
-- [OKF](https://ykantreddi-dev.github.io/presentation/okf.html)
+This repo is to store all the presentations

@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Access</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f9; }
-        .login-box { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
-        input { padding: 8px; margin-right: 8px; border: 1px solid #ccc; border-radius: 4px; }
-        button { padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background: #0056b3; }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .login-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            padding: 8px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="login-box">
@@ -24,11 +57,11 @@
     <script>
         function checkPassword() {
             const pass = document.getElementById('passcodeInput').value;
-            
+
             // Change "1234" to whatever you want your password to be
             if (pass === "Yagi1213") {
                 // Redirects to your hidden folder
-                window.location.href = "files_%23%252we%23%24/";
+                window.location.href = "files_%23%252we%23%24/index.html";
             } else {
                 document.getElementById('errorMsg').style.display = "block";
             }
@@ -36,4 +69,5 @@
     </script>
 
 </body>
+
 </html>
