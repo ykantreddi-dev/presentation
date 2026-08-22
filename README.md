@@ -1,1 +1,1 @@
-This is to store all the PPT's
+- [Decorators, Generators and Exceptions](https://ykantreddi-dev.github.io/presentation/python-session-generators-decorators-slate.html)
