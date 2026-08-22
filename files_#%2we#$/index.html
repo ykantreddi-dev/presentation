@@ -1,1 +1,1160 @@
-test
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Open Knowledge Format (OKF) — Internal Research</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0NiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDQ4IDQ2Ij48cGF0aCBmaWxsPSIjODYzYmZmIiBkPSJNMjUuOTQ2IDQ0LjkzOGMtLjY2NC44NDUtMi4wMjEuMzc1LTIuMDIxLS42OThWMzMuOTM3YTIuMjYgMi4yNiAwIDAgMC0yLjI2Mi0yLjI2MkgxMC4yODdjLS45MiAwLTEuNDU2LTEuMDQtLjkyLTEuNzg4bDcuNDgtMTAuNDcxYzEuMDctMS40OTcgMC0zLjU3OC0xLjg0Mi0zLjU3OEgxLjIzN2MtLjkyIDAtMS40NTYtMS4wNC0uOTItMS43ODhMMTAuMDEzLjQ3NGMuMjE0LS4yOTcuNTU2LS40NzQuOTItLjQ3NGgyOC44OTRjLjkyIDAgMS40NTYgMS4wNC45MiAxLjc4OGwtNy40OCAxMC40NzFjLTEuMDcgMS40OTggMCAzLjU3OSAxLjg0MiAzLjU3OWgxMS4zNzdjLjk0MyAwIDEuNDczIDEuMDg4Ljg5IDEuODNMMjUuOTQ3IDQ0Ljk0eiIgc3R5bGU9ImZpbGw6Izg2M2JmZjtmaWxsOmNvbG9yKGRpc3BsYXktcDMgLjUyNTIgLjIzIDEpO2ZpbGwtb3BhY2l0eToxIi8+PG1hc2sgaWQ9ImEiIHdpZHRoPSI0OCIgaGVpZ2h0PSI0NiIgeD0iMCIgeT0iMCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgc3R5bGU9Im1hc2stdHlwZTphbHBoYSI+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTI1Ljg0MiA0NC45MzhjLS42NjQuODQ0LTIuMDIxLjM3NS0yLjAyMS0uNjk4VjMzLjkzN2EyLjI2IDIuMjYgMCAwIDAtMi4yNjItMi4yNjJIMTAuMTgzYy0uOTIgMC0xLjQ1Ni0xLjA0LS45Mi0xLjc4OGw3LjQ4LTEwLjQ3MWMxLjA3LTEuNDk4IDAtMy41NzktMS44NDItMy41NzlIMS4xMzNjLS45MiAwLTEuNDU2LTEuMDQtLjkyLTEuNzg3TDkuOTEuNDczYy4yMTQtLjI5Ny41NTYtLjQ3NC45Mi0uNDc0aDI4Ljg5NGMuOTIgMCAxLjQ1NiAxLjA0LjkyIDEuNzg4bC03LjQ4IDEwLjQ3MWMtMS4wNyAxLjQ5OCAwIDMuNTc4IDEuODQyIDMuNTc4aDExLjM3N2MuOTQzIDAgMS40NzMgMS4wODguODkgMS44MzJMMjUuODQzIDQ0Ljk0eiIgc3R5bGU9ImZpbGw6IzAwMDtmaWxsLW9wYWNpdHk6MSIvPjwvbWFzaz48ZyBtYXNrPSJ1cmwoI2EpIj48ZyBmaWx0ZXI9InVybCgjYikiPjxlbGxpcHNlIGN4PSI1LjUwOCIgY3k9IjE0LjcwNCIgZmlsbD0iI2VkZTZmZiIgcng9IjUuNTA4IiByeT0iMTQuNzA0IiBzdHlsZT0iZmlsbDojZWRlNmZmO2ZpbGw6Y29sb3IoZGlzcGxheS1wMyAuOTI3NSAuOTAzMyAxKTtmaWxsLW9wYWNpdHk6MSIgdHJhbnNmb3JtPSJtYXRyaXgoLjAwMzI0IDEgMSAtLjAwMzI0IC00LjQ3IDMxLjUxNikiLz48L2c+PGcgZmlsdGVyPSJ1cmwoI2MpIj48ZWxsaXBzZSBjeD0iMTAuMzk5IiBjeT0iMjkuODUxIiBmaWxsPSIjZWRlNmZmIiByeD0iMTAuMzk5IiByeT0iMjkuODUxIiBzdHlsZT0iZmlsbDojZWRlNmZmO2ZpbGw6Y29sb3IoZGlzcGxheS1wMyAuOTI3NSAuOTAzMyAxKTtmaWxsLW9wYWNpdHk6MSIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMTYuMTM2IDU1LjY2OSkiLz48L2c+PGcgZmlsdGVyPSJ1cmwoI2QpIj48ZWxsaXBzZSBjeD0iNDEuNzg0IiBjeT0iMjQuMDA3IiBmaWxsPSIjZWRlNmZmIiByeD0iMTEuMjE0IiByeT0iMjMuMzMzIiBzdHlsZT0iZmlsbDojZWRlNmZmO2ZpbGw6Y29sb3IoZGlzcGxheS1wMyAuOTI3NSAuOTAzMyAxKTtmaWxsLW9wYWNpdHk6MSIvPjwvZz48L2c+PGRlZnM+PGZpbHRlciBpZD0iYiIgd2lkdGg9IjM3LjQwNyIgaGVpZ2h0PSIxOS4wMTYiIHg9Ii0xMy4xOTYiIHk9IjUuMTk2IiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIzLjM1IiByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfMTI1NV8xMTc2Ii8+PC9maWx0ZXI+PGZpbHRlciBpZD0iYyIgd2lkdGg9IjM4Ljc5OCIgaGVpZ2h0PSI1NS40MDIiIHg9Ii05IiB5PSIyLjE1IiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0LjUiIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl8xMjU1XzExNzYiLz48L2ZpbHRlcj48ZmlsdGVyIGlkPSJkIiB3aWR0aD0iNDQuNDI4IiBoZWlnaHQ9IjYwLjY2NiIgeD0iMTkuNTciIHk9Ii03LjMyNiIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNS41IiByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfMTI1NV8xMTc2Ii8+PC9maWx0ZXI+PC9kZWZzPjwvc3ZnPg==" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --background: #09090b;
+    --surface: #18181b;
+    --surface-elevated: #27272a;
+    --border: #3f3f46;
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --accent: #00aae7;
+    --accent-hover: #2368a0;
+    --accent-subtle: rgba(0, 170, 231, 0.12);
+    --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  :root[data-theme="light"] {
+    --background: #f0f2f5;
+    --surface: #ffffff;
+    --surface-elevated: #e8eaee;
+    --border: #dde0e6;
+    --text-primary: #232527;
+    --text-secondary: #8c8c8c;
+    --text-muted: #b7b2b3;
+    --accent-hover: #2368a0;
+    --accent-subtle: rgba(0, 170, 231, 0.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  .particles {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: var(--background);
+    opacity: 1;
+    transition: background-color 300ms ease, opacity 400ms ease;
+  }
+
+  .vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 65% 75% at 50% 50%, transparent 0%, var(--background) 100%);
+    opacity: 1;
+    transition: background 300ms ease, opacity 400ms ease;
+  }
+
+  body.is-content-slide .particles,
+  body.is-content-slide .vignette {
+    opacity: 0;
+  }
+
+  .deck {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Slides ─────────────────────────────────────────────── */
+  .slides {
+    position: relative;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 64px 10vw;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 480ms cubic-bezier(0.65, 0, 0.35, 1), opacity 420ms ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .slide.before { transform: translateX(-100%); opacity: 0; }
+  .slide.after  { transform: translateX(100%); opacity: 0; }
+
+  /* ── Per-slide content entrance (subtle stagger on the direct children) ── */
+  @keyframes contentIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide.active > * {
+    animation: contentIn 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .slide.active > *:nth-child(1) { animation-delay: 0ms; }
+  .slide.active > *:nth-child(2) { animation-delay: 70ms; }
+  .slide.active > *:nth-child(3) { animation-delay: 140ms; }
+  .slide.active > *:nth-child(4) { animation-delay: 210ms; }
+  .slide.active > *:nth-child(5) { animation-delay: 280ms; }
+  .slide.active > *:nth-child(6) { animation-delay: 350ms; }
+  .slide.active > *:nth-child(7) { animation-delay: 420ms; }
+  .slide.active > *:nth-child(8) { animation-delay: 490ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide.active > * { animation: none; }
+  }
+
+  /* ── Title / landing slide ──────────────────────────────── */
+  .slide-title { text-align: center; }
+
+  .landing-logo {
+    height: clamp(72px, 9vw, 128px);
+    width: auto;
+    margin-bottom: 40px;
+  }
+
+  .title-main {
+    font-size: clamp(52px, 6.8vw, 84px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 16ch;
+    margin: 0 0 18px;
+  }
+
+  .title-sub {
+    font-size: clamp(19px, 2vw, 26px);
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 48px;
+    letter-spacing: -0.01em;
+  }
+
+  .start-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    padding: 16px 32px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .start-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 170, 231, 0.28);
+  }
+
+  .start-btn:active { transform: translateY(0); }
+
+  .start-btn svg { width: 16px; height: 16px; }
+
+  .deck.presentation-active .slide-title .start-btn {
+    display: none;
+  }
+
+  /* ── Content slides ─────────────────────────────────────── */
+  .slide-content {
+    align-items: flex-start;
+    text-align: left;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    width: min(1040px, 78vw);
+    max-width: none;
+    margin: 0 auto;
+  }
+
+  .kicker {
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-subtle);
+    border: 1px solid rgba(0, 170, 231, 0.3);
+    border-radius: 999px;
+    padding: 7px 18px;
+    margin-bottom: 26px;
+  }
+
+  .content-heading {
+    font-size: clamp(34px, 3.9vw, 50px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 20px;
+  }
+
+  .content-lede {
+    font-size: 20px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 32px;
+    max-width: 60ch;
+  }
+
+  .feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: background-color 200ms ease, border-color 200ms ease;
+  }
+
+  .feature-list .dot {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-subtle);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 1px;
+  }
+
+  .feature-list span.text {
+    font-size: 18.5px;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .feature-list strong { color: var(--text-primary); }
+
+  /* ── Footer (presentation mode only) ───────────────────────── */
+  .deck-footer {
+    display: none;
+    flex: 0 0 auto;
+    height: 64px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    border-top: 1px solid var(--border);
+    background: rgba(9, 9, 11, 0.5);
+    backdrop-filter: blur(10px);
+    transition: border-color 200ms ease, background-color 200ms ease;
+  }
+
+  :root[data-theme="light"] .deck-footer {
+    background: rgba(240, 242, 245, 0.7);
+  }
+
+  .deck.presentation-active .deck-footer {
+    display: flex;
+  }
+
+  .footer-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
+  .footer-controls {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .footer-progress {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .dot-btn {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 160ms ease, width 160ms ease;
+  }
+
+  .dot-btn.is-active {
+    background: var(--accent);
+    width: 22px;
+    border-radius: 4px;
+  }
+
+  .control-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+  }
+
+  .nav-btn, .icon-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18.5px;
+    transition: background-color 140ms ease, border-color 140ms ease, opacity 140ms ease;
+  }
+
+  .icon-btn svg { width: 15px; height: 15px; }
+
+  .nav-btn:hover:not(:disabled), .icon-btn:hover {
+    background: var(--surface-elevated);
+    border-color: var(--accent);
+  }
+
+  .nav-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .nav-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     Deck-specific components — reusable block library, pick per slide
+     ══════════════════════════════════════════════════════════ */
+
+  :root {
+    --info: #3b82f6;
+    --warning: #f59e0b;
+    --success: #22c55e;
+    --destructive: #ef4444;
+  }
+
+  .slide-wide { width: min(1180px, 88vw); }
+
+  /* ── Section-break slides (Why / What / How / Live Demo / Thank You) ── */
+  .slide-section { text-align: center; }
+
+  .section-eyebrow {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+    opacity: 0.9;
+  }
+
+  .section-logo {
+    height: clamp(50px, 6.5vw, 80px);
+    width: auto;
+    margin-bottom: 46px;
+  }
+
+  .section-word {
+    font-size: clamp(88px, 15.5vw, 196px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    padding-bottom: 0.1em;
+    margin: 0 0 22px;
+    background: linear-gradient(135deg, var(--text-primary) 45%, var(--accent) 110%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .section-word.section-word--sm { font-size: clamp(56px, 9vw, 124px); }
+
+  .section-qmark { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+
+  .section-subtitle {
+    font-size: clamp(18px, 1.8vw, 23px);
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Generic small helpers ── */
+  .closing-line {
+    font-size: 18.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    margin-top: 6px;
+  }
+
+  .stat-inline {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    background: var(--accent-subtle);
+    border: 1px solid rgba(0, 170, 231, 0.3);
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 17.5px;
+    color: var(--text-primary);
+    margin-bottom: 22px;
+  }
+
+  .stat-inline .num { font-size: 24px; font-weight: 800; color: var(--accent); }
+
+  /* ── Icon badge, shared by several grids ── */
+  .icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent-subtle);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
+  .icon-badge svg { width: 22px; height: 22px; }
+
+  /* ── Bio / background stat grid ── */
+  .bio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: 100%; margin-top: 0; }
+
+  .bio-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 34px 24px; text-align: left; }
+
+  .bio-card .icon-badge { width: 54px; height: 54px; border-radius: 14px; margin-bottom: 24px; }
+
+  .bio-card .icon-badge svg { width: 27px; height: 27px; }
+
+  .bio-card .bio-value { font-size: 32px; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 12px; line-height: 1.25; }
+
+  .bio-card .bio-label { font-size: 17px; color: var(--text-secondary); line-height: 1.55; }
+
+  /* ── Timeline (milestone cards) ── */
+  .timeline { display: flex; width: 100%; margin-top: 0; }
+
+  .timeline-item { flex: 1; position: relative; padding: 0 16px; }
+
+  .timeline-item:first-child { padding-left: 0; }
+  .timeline-item:last-child { padding-right: 0; }
+
+  .timeline-track { position: absolute; top: 17px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+
+  .timeline-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    box-shadow: 0 0 0 4px var(--background);
+  }
+
+  .timeline-date {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .timeline-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 20px;
+  }
+
+  .timeline-title { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 8px; line-height: 1.25; }
+
+  .timeline-tool { font-size: 15px; color: var(--text-secondary); font-weight: 600; margin: 0 0 16px; line-height: 1.4; }
+
+  .mode-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-elevated);
+    color: var(--text-secondary);
+  }
+
+  .mode-pill.level-2 { border-color: rgba(59, 130, 246, 0.35); background: rgba(59, 130, 246, 0.1); color: var(--info); }
+  .mode-pill.level-3 { border-color: rgba(0, 170, 231, 0.35); background: var(--accent-subtle); color: var(--accent); }
+  .mode-pill.level-4 { border-color: var(--accent); background: var(--accent); color: #ffffff; }
+
+  /* ── Tool chip row ── */
+  .tool-strip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+
+  .tool-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-size: 16.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .tool-chip .tool-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; }
+
+  /* ── Spark / Slate split layout ── */
+  .split-layout { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 36px; width: 100%; align-items: stretch; margin-top: 8px; }
+
+  .split-divider { background: var(--border); }
+
+  .split-panel { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+
+  .split-mark { width: 62px; height: 62px; border-radius: 17px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+
+  .split-mark svg { width: 31px; height: 31px; }
+
+  .split-panel.spark .split-mark { background: var(--accent-subtle); color: var(--accent); }
+
+  .split-panel.slate .split-mark { background: rgba(245, 158, 11, 0.14); color: var(--warning); }
+
+  .split-name { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 6px; }
+
+  .split-tagline { font-size: 17px; color: var(--text-secondary); line-height: 1.55; margin: 0 0 18px; }
+
+  .split-caps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; width: 100%; }
+
+  .split-caps li { display: flex; align-items: center; gap: 10px; font-size: 16.5px; font-weight: 600; color: var(--text-primary); }
+
+  .split-caps li svg { width: 14px; height: 14px; color: var(--accent); flex: 0 0 auto; }
+
+  .split-panel.slate .split-caps li svg { color: var(--warning); }
+
+  /* ── Checklist grid ── */
+  .checklist { list-style: none; margin: 0 0 20px; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; }
+
+  .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 17px; color: var(--text-primary); }
+
+  .checklist li svg { width: 16px; height: 16px; color: var(--success); flex: 0 0 auto; margin-top: 2px; }
+
+  .collab-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+
+  /* ── Repo tree ── */
+  .repo-tree {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 15.5px;
+    line-height: 1.9;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    width: 100%;
+    color: var(--text-secondary);
+    white-space: pre;
+  }
+
+  .repo-tree .rt-root { color: var(--text-primary); font-weight: 700; }
+
+  .repo-tree .rt-dir { color: var(--accent); font-weight: 600; }
+
+  .repo-tree .rt-comment { color: var(--text-muted); }
+
+  .focus-row { display: flex; gap: 14px; margin-top: 20px; }
+
+  .focus-chip {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent-subtle);
+    border: 1px solid rgba(0, 170, 231, 0.3);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .focus-chip svg { width: 17px; height: 17px; flex: 0 0 auto; }
+
+  /* ── Takeaway cards ── */
+  .takeaway-grid { display: flex; flex-direction: column; gap: 16px; width: 100%; margin-top: 10px; }
+
+  .takeaway-card { display: flex; gap: 20px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; }
+
+  .takeaway-num {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 21px;
+  }
+
+  .takeaway-card h4 { margin: 0 0 6px; font-size: 15.5px; font-weight: 800; }
+
+  .takeaway-card p { margin: 0; font-size: 17px; color: var(--text-secondary); line-height: 1.6; }
+</style>
+</head>
+<body>
+  <canvas class="particles" id="particles"></canvas>
+  <div class="vignette"></div>
+
+  <div class="deck" id="deck">
+    <main class="slides" id="slides">
+      <section class="slide slide-title" data-index="0">
+        <img class="landing-logo brand-logo" id="landingLogo" src="https://power-dev.miraclesoft.ai/assets/miracle-logo-light-bEPQ0_g6.png" alt="Miraclesoft" />
+        <h1 class="title-main">Open Knowledge Format (OKF)</h1>
+        <p class="title-sub">Internal Research on Structuring Enterprise Knowledge for Grounded AI</p>
+        <button class="start-btn" id="startBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Let's Begin
+        </button>
+      </section>
+
+      <section class="slide slide-content" data-index="1">
+        <div class="kicker">Overview</div>
+        <h2 class="content-heading">What this session covers</h2>
+        <ul class="feature-list">
+          <li><span class="dot">1</span><span class="text"><strong>The challenge:</strong> business knowledge lives across policies, FAQs, and processes, which makes retrieval inconsistent.</span></li>
+          <li><span class="dot">2</span><span class="text"><strong>RAG technology:</strong> retrieve the right context first, then generate an answer against that context.</span></li>
+          <li><span class="dot">3</span><span class="text"><strong>OKF framework:</strong> structure knowledge with identifiers, titles, tags, and relationships.</span></li>
+          <li><span class="dot">4</span><span class="text"><strong>RAG vs OKF:</strong> one retrieves and grounds answers, the other organizes the knowledge base.</span></li>
+          <li><span class="dot">5</span><span class="text"><strong>System architecture:</strong> source content to OKF records to retrieval to grounded responses.</span></li>
+          <li><span class="dot">6</span><span class="text"><strong>Live demo:</strong> walk through how the pipeline behaves in practice.</span></li>
+          <li><span class="dot">7</span><span class="text"><strong>Conclusion:</strong> why structure and retrieval work best together.</span></li>
+        </ul>
+        <div class="tool-strip">
+          <span class="tool-chip"><span class="tool-dot"></span>Knowledge Bases</span>
+          <span class="tool-chip"><span class="tool-dot"></span>Metadata</span>
+          <span class="tool-chip"><span class="tool-dot"></span>Semantic Search</span>
+          <span class="tool-chip"><span class="tool-dot"></span>LLMs</span>
+          <span class="tool-chip"><span class="tool-dot"></span>Grounded Answers</span>
+        </div>
+      </section>
+
+      <section class="slide slide-content" data-index="2">
+        <div class="kicker">Presenter</div>
+        <h2 class="content-heading">Who is presenting this research?</h2>
+        <div class="bio-grid">
+          <div class="bio-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div class="bio-value">Varshitha</div>
+            <div class="bio-label">Varshitha Tangeti, presenting the OKF internal research topic.</div>
+          </div>
+          <div class="bio-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 3 12l6 6"/><path d="M15 6l6 6-6 6"/></svg></div>
+            <div class="bio-value">Trainee</div>
+            <div class="bio-label">Software Trainee, focused on AI-enabled knowledge and retrieval workflows.</div>
+          </div>
+          <div class="bio-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.7L19 10l-5.2 1.3L12 17l-1.8-5.7L5 10l5.2-1.3z"/><path d="M19 15l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6z"/></svg></div>
+            <div class="bio-value">Miracle</div>
+            <div class="bio-label">Miracle Software Systems, the organization context shown in the source material.</div>
+          </div>
+          <div class="bio-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c-4 0-7-3-7-7 4 0 7 3 7 7z"/><path d="M12 11c0-4 3-7 7-7 0 4-3 7-7 7z"/></svg></div>
+            <div class="bio-value">OKF + RAG</div>
+            <div class="bio-label">Research focus: how structured knowledge and retrieval work together for accurate answers.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-section" data-index="3">
+        <img class="section-logo brand-logo" alt="Logo" />
+        <h1 class="section-word">Challenge</h1>
+        <p class="section-subtitle">Why enterprise knowledge needs more than keyword search</p>
+      </section>
+
+      <section class="slide slide-content" data-index="4">
+        <div class="kicker">The Challenge</div>
+        <h2 class="content-heading">Enterprise knowledge breaks down before AI can help</h2>
+        <p class="content-lede">The source deck frames the problem first: knowledge exists, but it is scattered, inconsistently structured, and difficult to ground reliably in an answer.</p>
+        <ul class="feature-list">
+          <li><span class="dot">1</span><span class="text">Policies, FAQs, and operational processes are spread across separate files and systems.</span></li>
+          <li><span class="dot">2</span><span class="text">Traditional keyword search often misses the most relevant material when wording differs from the user query.</span></li>
+          <li><span class="dot">3</span><span class="text">Standalone LLMs can sound fluent while still answering incorrectly when domain context is missing.</span></li>
+          <li><span class="dot">4</span><span class="text">The real need is a pipeline that can both find the right knowledge and generate a response grounded in it.</span></li>
+        </ul>
+        <p class="closing-line">Without retrieval discipline and structured knowledge, AI answers are fast but not dependable.</p>
+      </section>
+
+      <section class="slide slide-section" data-index="5">
+        <img class="section-logo brand-logo" alt="Logo" />
+        <h1 class="section-word">Core</h1>
+        <p class="section-subtitle">The two building blocks: retrieval and structure</p>
+      </section>
+
+      <section class="slide slide-content slide-wide" data-index="6">
+        <div class="kicker">RAG Technology</div>
+        <h2 class="content-heading">Retrieval-Augmented Generation in four steps</h2>
+        <div class="timeline">
+          <div class="timeline-track"></div>
+          <div class="timeline-item">
+            <div class="timeline-dot">1</div>
+            <div class="timeline-date">Step 1</div>
+            <div class="timeline-card">
+              <div class="timeline-title">Ask</div>
+              <div class="timeline-tool">A user submits a natural-language business question.</div>
+              <span class="mode-pill level-1">Query</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">2</div>
+            <div class="timeline-date">Step 2</div>
+            <div class="timeline-card">
+              <div class="timeline-title">Retrieve</div>
+              <div class="timeline-tool">Semantic search finds the most relevant documents or records.</div>
+              <span class="mode-pill level-2">Search</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">3</div>
+            <div class="timeline-date">Step 3</div>
+            <div class="timeline-card">
+              <div class="timeline-title">Ground</div>
+              <div class="timeline-tool">The retrieved context is attached to the prompt before generation.</div>
+              <span class="mode-pill level-3">Context</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">4</div>
+            <div class="timeline-date">Step 4</div>
+            <div class="timeline-card">
+              <div class="timeline-title">Answer</div>
+              <div class="timeline-tool">The model responds against retrieved evidence instead of guessing from memory.</div>
+              <span class="mode-pill level-4">Response</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-content slide-wide" data-index="7">
+        <div class="kicker">OKF Framework</div>
+        <h2 class="content-heading">OKF turns loose content into structured knowledge assets</h2>
+        <p class="content-lede">The extracted source text points to OKF as the organizing layer: records carry explicit metadata and relationships so retrieval has something reliable to work with.</p>
+        <div class="repo-tree"><span class="rt-root">okf-record/</span>
+├── <span class="rt-dir">id</span>        <span class="rt-comment"># stable identifier for the knowledge item</span>
+├── <span class="rt-dir">title</span>     <span class="rt-comment"># readable topic or document name</span>
+├── <span class="rt-dir">tags</span>      <span class="rt-comment"># domain labels such as hr, policy, process</span>
+└── <span class="rt-dir">related</span>   <span class="rt-comment"># connected FAQs, policies, or process documents</span></div>
+        <div class="focus-row">
+          <div class="focus-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>Structured metadata</div>
+          <div class="focus-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M17 4v4h-4M7 20v-4h4"/></svg>Linked records</div>
+          <div class="focus-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>Search-ready context</div>
+        </div>
+        <p class="closing-line">OKF is not the answering system by itself; it is the structure that makes reliable answering possible.</p>
+      </section>
+
+      <section class="slide slide-content slide-wide" data-index="8">
+        <div class="kicker">RAG vs OKF</div>
+        <h2 class="content-heading">These are complementary layers, not competing ideas</h2>
+        <div class="split-layout">
+          <div class="split-panel spark">
+            <div class="split-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+            <div class="split-name">RAG</div>
+            <p class="split-tagline">Retrieves relevant information at query time and uses it to ground response generation.</p>
+            <ul class="split-caps">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>Finds semantically similar and relevant content</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 3 12l6 6"/><path d="M15 6l6 6-6 6"/></svg>Supplies context to the model before answering</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>Optimized for answer generation from retrieved evidence</li>
+            </ul>
+          </div>
+          <div class="split-divider"></div>
+          <div class="split-panel slate">
+            <div class="split-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M7 9h6M7 12h4"/><path d="M9 20l3-4 3 4"/></svg></div>
+            <div class="split-name">OKF</div>
+            <p class="split-tagline">Organizes knowledge in a structured format with metadata and relationships across records.</p>
+            <ul class="split-caps">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>Stores knowledge with fields like id, title, tags, and related</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>Maintains document relationships and knowledge hygiene</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.8 15.8 7.2M8.2 13.2l7.6 3.6"/></svg>Optimized for building and maintaining the knowledge base</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-section" data-index="9">
+        <img class="section-logo brand-logo" alt="Logo" />
+        <h1 class="section-word">Architecture</h1>
+        <p class="section-subtitle">How structured knowledge flows into grounded answers</p>
+      </section>
+
+      <section class="slide slide-content slide-wide" data-index="10">
+        <div class="kicker">System Architecture</div>
+        <h2 class="content-heading">End-to-end view from content source to response</h2>
+        <div class="timeline">
+          <div class="timeline-track"></div>
+          <div class="timeline-item">
+            <div class="timeline-dot">1</div>
+            <div class="timeline-date">Input</div>
+            <div class="timeline-card">
+              <div class="timeline-title">Source Content</div>
+              <div class="timeline-tool">Policies, FAQs, and process documents enter the knowledge pipeline.</div>
+              <span class="mode-pill level-1">Sources</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">2</div>
+            <div class="timeline-date">Structure</div>
+            <div class="timeline-card">
+              <div class="timeline-title">OKF Records</div>
+              <div class="timeline-tool">Knowledge is normalized with identifiers, tags, and cross-record relationships.</div>
+              <span class="mode-pill level-2">Model</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">3</div>
+            <div class="timeline-date">Retrieve</div>
+            <div class="timeline-card">
+              <div class="timeline-title">Search Layer</div>
+              <div class="timeline-tool">Queries match against structured and semantically indexed knowledge assets.</div>
+              <span class="mode-pill level-3">Retrieval</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">4</div>
+            <div class="timeline-date">Deliver</div>
+            <div class="timeline-card">
+              <div class="timeline-title">Grounded Response</div>
+              <div class="timeline-tool">The LLM answers with the retrieved enterprise context attached.</div>
+              <span class="mode-pill level-4">Answer</span>
+            </div>
+          </div>
+        </div>
+        <p class="closing-line">The architecture only works end to end when knowledge structure and retrieval quality reinforce each other.</p>
+      </section>
+
+      <section class="slide slide-section" data-index="11">
+        <span class="section-eyebrow">Interlude</span>
+        <img class="section-logo brand-logo" alt="Logo" />
+        <h1 class="section-word section-word--sm">Demo</h1>
+        <p class="section-subtitle">A practical walkthrough of the OKF and RAG flow</p>
+      </section>
+
+      <section class="slide slide-content slide-wide" data-index="12">
+        <div class="kicker">Live Demo</div>
+        <h2 class="content-heading">What the walkthrough is meant to prove</h2>
+        <div class="stat-inline"><span class="num">5 steps</span> from raw knowledge to answer trace</div>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 9.5"/></svg>Load source documents that represent business knowledge</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 9.5"/></svg>Create OKF-style entries with fields and relationships</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 9.5"/></svg>Index the structured knowledge for semantic retrieval</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 9.5"/></svg>Ask a business question and inspect which records are retrieved</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 9.5"/></svg>Validate that the final answer stays anchored to enterprise context</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 9.5"/></svg>Show why the trace is more trustworthy than a raw model response</li>
+        </ul>
+        <div class="content-lede" style="margin-bottom:10px;">The demo revolves around these knowledge asset types</div>
+        <div class="collab-row">
+          <span class="tool-chip"><span class="tool-dot"></span>Policies</span>
+          <span class="tool-chip"><span class="tool-dot"></span>FAQs</span>
+          <span class="tool-chip"><span class="tool-dot"></span>Processes</span>
+          <span class="tool-chip"><span class="tool-dot"></span>Metadata Links</span>
+        </div>
+        <p class="closing-line" style="margin-top:20px;">The live demo matters because it shows the difference between theoretical structure and observable answer quality.</p>
+      </section>
+
+      <section class="slide slide-section" data-index="13">
+        <img class="section-logo brand-logo" alt="Logo" />
+        <h1 class="section-word">Conclusion</h1>
+        <p class="section-subtitle">What the OKF research is really arguing for</p>
+      </section>
+
+      <section class="slide slide-content slide-wide" data-index="14">
+        <div class="kicker">Closing</div>
+        <h2 class="content-heading">Key takeaways from the OKF presentation</h2>
+        <div class="takeaway-grid">
+          <div class="takeaway-card">
+            <div class="takeaway-num">1</div>
+            <div><h4>Fragmented knowledge is the root problem</h4><p>When policies, FAQs, and process documents remain disconnected, both search and AI answers degrade quickly.</p></div>
+          </div>
+          <div class="takeaway-card">
+            <div class="takeaway-num">2</div>
+            <div><h4>OKF and RAG solve different parts of the same system</h4><p>OKF organizes the knowledge base; RAG retrieves the right context and grounds the answer against it.</p></div>
+          </div>
+          <div class="takeaway-card">
+            <div class="takeaway-num">3</div>
+            <div><h4>The outcome is faster and more reliable enterprise answers</h4><p>Structured knowledge plus intelligent retrieval produces context-driven responses that are easier to trust.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-section" data-index="15">
+        <img class="section-logo brand-logo" alt="Logo" />
+        <h1 class="section-word section-word--sm">Interactive Q&amp;A</h1>
+        <p class="section-subtitle">Questions, discussion, and next steps</p>
+      </section>
+    </main>
+
+    <footer class="deck-footer" id="deckFooter">
+      <img class="footer-logo brand-logo" id="footerLogo" src="https://power-dev.miraclesoft.ai/assets/miracle-logo-light-bEPQ0_g6.png" alt="Miraclesoft" />
+      <div class="footer-controls">
+        <span class="footer-progress"><span id="progressCurrent">1</span> / <span id="progressTotal">3</span></span>
+        <div class="dots" id="dots"></div>
+        <div class="control-divider"></div>
+        <div class="nav-group">
+          <button class="nav-btn" id="prevBtn" aria-label="Previous slide">&#8249;</button>
+          <button class="nav-btn" id="nextBtn" aria-label="Next slide">&#8250;</button>
+        </div>
+        <div class="control-divider"></div>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"></button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const LOGO_LIGHT = 'https://power-dev.miraclesoft.ai/assets/miracle-logo-light-bEPQ0_g6.png'; // light-colored mark, for dark backgrounds
+      const LOGO_DARK  = 'https://power-dev.miraclesoft.ai/assets/miracle-logo-dark-BUXm_WFH.png';  // dark-colored mark, for light backgrounds
+
+      const ICON_SUN  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+      const ICON_MOON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 14.7A8.5 8.5 0 0 1 9.3 3.6a8.5 8.5 0 1 0 11.1 11.1z"/></svg>';
+
+      const root = document.documentElement;
+      const deck = document.getElementById('deck');
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const total = slides.length;
+      const startBtn = document.getElementById('startBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotsWrap = document.getElementById('dots');
+      const progressCurrent = document.getElementById('progressCurrent');
+      const progressTotal = document.getElementById('progressTotal');
+      const themeBtn = document.getElementById('themeBtn');
+      const landingLogo = document.getElementById('landingLogo');
+      const footerLogo = document.getElementById('footerLogo');
+
+      let current = 0;
+      let isDark = true;
+
+      progressTotal.textContent = total;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'dot-btn';
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => { if (deck.classList.contains('presentation-active')) goTo(i); });
+        dotsWrap.appendChild(dot);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      function render() {
+        slides.forEach((slide, i) => {
+          slide.classList.remove('active', 'before', 'after');
+          if (i === current) slide.classList.add('active');
+          else if (i < current) slide.classList.add('before');
+          else slide.classList.add('after');
+        });
+        dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+        progressCurrent.textContent = current + 1;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === total - 1;
+        const activeSlide = slides[current];
+        const showParticles = activeSlide.classList.contains('slide-title') || activeSlide.classList.contains('slide-section');
+        document.body.classList.toggle('is-content-slide', !showParticles);
+      }
+
+      function goTo(index) {
+        current = Math.max(0, Math.min(total - 1, index));
+        render();
+      }
+
+      function next() { if (deck.classList.contains('presentation-active')) goTo(current + 1); }
+      function prev() { if (deck.classList.contains('presentation-active')) goTo(current - 1); }
+
+      function enterFullscreen() {
+        const el = document.documentElement;
+        const request = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+        if (request) request.call(el).catch(() => {});
+      }
+
+      function exitPresentation() {
+        deck.classList.remove('presentation-active');
+        goTo(0);
+      }
+
+      startBtn.addEventListener('click', () => {
+        enterFullscreen();
+        deck.classList.add('presentation-active');
+        render();
+      });
+
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+
+      window.addEventListener('keydown', (e) => {
+        if (!deck.classList.contains('presentation-active')) return;
+        if (['ArrowRight', 'ArrowDown', ' ', 'PageDown'].includes(e.key)) {
+          e.preventDefault();
+          next();
+        } else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) {
+          e.preventDefault();
+          prev();
+        } else if (e.key === 'Home') {
+          goTo(0);
+        } else if (e.key === 'End') {
+          goTo(total - 1);
+        }
+      });
+
+      ['fullscreenchange', 'webkitfullscreenchange', 'msfullscreenchange'].forEach((evt) => {
+        document.addEventListener(evt, () => {
+          const isFs = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+          if (!isFs) exitPresentation();
+        });
+      });
+
+      // ── Theme toggle ──────────────────────────────────────────
+      function applyTheme() {
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        const logoSrc = isDark ? LOGO_LIGHT : LOGO_DARK;
+        document.querySelectorAll('.brand-logo').forEach((img) => { img.src = logoSrc; });
+        themeBtn.innerHTML = isDark ? ICON_SUN : ICON_MOON;
+      }
+
+      themeBtn.addEventListener('click', () => {
+        isDark = !isDark;
+        applyTheme();
+      });
+
+      // ── Tip #1 click-to-reveal ("lie" → "plan") ─────────────────
+      const tipReveal = document.getElementById('tipReveal');
+      if (tipReveal) {
+        tipReveal.addEventListener('click', () => {
+          tipReveal.classList.toggle('is-revealed');
+        });
+      }
+
+      applyTheme();
+      render();
+
+      // ── Particle background (matches the app's login screen) ──
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const COUNT = 70;
+      const MAX_DIST = 160;
+      const particles = Array.from({ length: COUNT }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+      }));
+
+      function draw() {
+        const dotColor = isDark ? 'rgba(0,170,231,0.55)' : 'rgba(12,24,41,0.35)';
+        const lineBase = isDark ? '0,170,231' : '12,24,41';
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (const p of particles) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
+          ctx.fillStyle = dotColor;
+          ctx.fill();
+        }
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < MAX_DIST) {
+              const alpha = (1 - dist / MAX_DIST) * (isDark ? 0.18 : 0.12);
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = 'rgba(' + lineBase + ',' + alpha + ')';
+              ctx.lineWidth = 0.7;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>
